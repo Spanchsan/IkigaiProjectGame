@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes&Scripts/WalkingPlayer/WalkingPlayer.gd" type="Script" id=1]
+[ext_resource path="res://img/space/AtEarth/AtEarth (3).png" type="Texture" id=2]
+[ext_resource path="res://img/space/AtEarth/AtEarth (2).png" type="Texture" id=3]
+[ext_resource path="res://img/space/AtEarth/AtEarth (1).png" type="Texture" id=4]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( 52, 29.5, 2, 40.5, -51.5, 31, -51, 10, 1.5, 2.5, 49.5, 7.5 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 41.0
+height = 0.0
+
+[node name="PlayerAtEarth" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2( 0, 76.5 )
+z_index = 3
+occluder = SubResource( 1 )
+
+[node name="AnimationAtEarth" type="AnimatedSprite" parent="."]
+position = Vector2( 9.6236, -14.5782 )
+scale = Vector2( 0.15, 0.15 )
+z_index = 2
+frames = SubResource( 2 )
+frame = 2
+playing = true
+offset = Vector2( -64.1573, 97.188 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -6.5, 78.5 )
+shape = SubResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -6.5, 78.5 )
+shape = SubResource( 3 )
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

@@ -1,0 +1,99 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Levels/Level2/img/Fone.png" type="Texture" id=1]
+[ext_resource path="res://Scenes&Scripts/WalkingPlayer/WalkingPlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://img/PlayerLight/LightSprite.png" type="Texture" id=3]
+[ext_resource path="res://img/background.png" type="Texture" id=4]
+[ext_resource path="res://Levels/Level2/Level2.gd" type="Script" id=5]
+[ext_resource path="res://Levels/Level2/Chair/Chair1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/Level2/Chair/Chair2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/Level2/Chair/Chair3.tscn" type="PackedScene" id=8]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="BackGroundStuff" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="BackGroundStuff"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -57.7961
+margin_top = -93.589
+margin_right = 1990.2
+margin_bottom = 1954.41
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="BackGroundStuff"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.82837
+margin_right = 1919.17
+margin_bottom = 1080.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Light2D" type="Light2D" parent="BackGroundStuff"]
+position = Vector2( 988.941, 593.4 )
+scale = Vector2( 6.07801, 4.99553 )
+texture = ExtResource( 3 )
+energy = 0.71
+range_height = 60.0
+shadow_enabled = true
+
+[node name="Light2D2" type="Light2D" parent="BackGroundStuff"]
+position = Vector2( 1637.49, 477.454 )
+scale = Vector2( 1.4365, 3.21991 )
+texture = ExtResource( 3 )
+texture_scale = 2.18
+energy = 0.43
+range_height = 60.0
+shadow_enabled = true
+
+[node name="PlayerAtEarth" parent="." instance=ExtResource( 2 )]
+position = Vector2( 850.572, 966.373 )
+
+[node name="Wall" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2( 183.212, 493.053 )
+scale = Vector2( 2.16, 1 )
+
+[node name="Left" type="CollisionPolygon2D" parent="Wall"]
+polygon = PoolVector2Array( -84.0453, -493.413, 112.261, -343.582, 112.261, 281.212, -82.2512, 589.822 )
+
+[node name="Front" type="CollisionPolygon2D" parent="Wall"]
+polygon = PoolVector2Array( 114.359, -349.146, 606.559, -344.389, 606.559, 283.512, 111.056, 283.512 )
+
+[node name="Right" type="CollisionPolygon2D" parent="Wall"]
+polygon = PoolVector2Array( 607.66, -344.389, 802.558, -489.472, 805.861, 587.949, 607.66, 285.891 )
+
+[node name="Bottom" type="CollisionPolygon2D" parent="Wall"]
+polygon = PoolVector2Array( -82.4303, 616.208, 815.858, 636.007, 822.405, 757.629, -98.1438, 735.002 )
+
+[node name="Chairs" type="Node2D" parent="."]
+position = Vector2( 1399.18, 676.174 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Chair1" parent="Chairs" instance=ExtResource( 6 )]
+scale = Vector2( 1, 1 )
+z_index = 1
+
+[node name="Chair2" parent="Chairs" instance=ExtResource( 7 )]
+position = Vector2( -4520.85, 301.304 )
+rotation = 0.364774
+scale = Vector2( 5, 5 )
+z_index = 1
+
+[node name="Chair3" parent="Chairs" instance=ExtResource( 8 )]
+position = Vector2( -2700.72, 449.031 )
+scale = Vector2( 5, 5 )
+z_index = 1

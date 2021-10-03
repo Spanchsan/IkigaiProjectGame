@@ -1,0 +1,117 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Levels/Level3/item2Script.gd" type="Script" id=1]
+[ext_resource path="res://Levels/Level3/item1Script.gd" type="Script" id=2]
+[ext_resource path="res://Levels/Level3/item3Script.gd" type="Script" id=3]
+[ext_resource path="res://Levels/Level3/Fone.png" type="Texture" id=4]
+[ext_resource path="res://Levels/Level3/baloon.png" type="Texture" id=5]
+[ext_resource path="res://Levels/Level3/sweet.png" type="Texture" id=6]
+[ext_resource path="res://Levels/Level3/dumbbell.png" type="Texture" id=7]
+[ext_resource path="res://Scenes&Scripts/FlyingPlayer/FlyingPlayer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Levels/Level3/Level3.gd" type="Script" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 423.457, 157.476 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 238.048, 458.942 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 137.555, 132.055 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item1" type="Sprite" parent="."]
+position = Vector2( 509.01, 814.51 )
+scale = Vector2( 0.181873, 0.190168 )
+z_index = 5
+texture = ExtResource( 7 )
+
+[node name="Button" type="Button" parent="Item1"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -344.858
+margin_top = -109.625
+margin_right = 347.142
+margin_bottom = 126.375
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item1" type="Area2D" parent="Item1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item1/Item1"]
+shape = SubResource( 1 )
+
+[node name="item2" type="Sprite" parent="."]
+position = Vector2( 1394.67, 741.727 )
+scale = Vector2( 0.220262, 0.196159 )
+z_index = 5
+texture = ExtResource( 5 )
+
+[node name="Button" type="Button" parent="item2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -184.0
+margin_top = -428.0
+margin_right = 195.0
+margin_bottom = 493.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item2" type="Area2D" parent="item2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="item2/Item2"]
+shape = SubResource( 2 )
+
+[node name="item3" type="Sprite" parent="."]
+position = Vector2( 859.758, 812.972 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 5
+texture = ExtResource( 6 )
+
+[node name="Button" type="Button" parent="item3"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -158.0
+margin_top = -154.0
+margin_right = 165.0
+margin_bottom = 161.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item3" type="Area2D" parent="item3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="item3/Item3"]
+shape = SubResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1130.28, 954.786 )
+
+[node name="Wall" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2( 183.212, 493.053 )
+scale = Vector2( 2.16, 1 )
+
+[node name="Left" type="CollisionPolygon2D" parent="Wall"]
+polygon = PoolVector2Array( -84.0453, -493.413, 112.261, -343.582, 112.261, 281.212, -82.2512, 589.822 )
+
+[node name="Front" type="CollisionPolygon2D" parent="Wall"]
+polygon = PoolVector2Array( 114.359, -349.146, 606.559, -344.389, 606.559, 283.512, 111.056, 283.512 )
+
+[node name="Right" type="CollisionPolygon2D" parent="Wall"]
+polygon = PoolVector2Array( 607.66, -344.389, 802.558, -489.472, 805.861, 587.949, 607.66, 285.891 )
+
+[node name="Bottom" type="CollisionPolygon2D" parent="Wall"]
+polygon = PoolVector2Array( -82.4303, 616.208, 815.858, 636.007, 822.405, 757.629, -98.1438, 735.002 )

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://img/background1.png" type="Texture" id=1]
+[ext_resource path="res://img/background_n.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1023.24, 167.251 )
+
+[node name="Ground" type="StaticBody2D"]
+
+[node name="BackgroundGround" type="Sprite" parent="."]
+position = Vector2( -3, -11.8921 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 1 )
+normal_map = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 1670, 2048, 378 )
+
+[node name="z" type="CollisionShape2D" parent="."]
+position = Vector2( -3.98862, 0.436888 )
+scale = Vector2( 0.6, 0.6 )
+shape = SubResource( 1 )

@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Autoload/HintLabel/hintLabel.gd" type="Script" id=1]
+[ext_resource path="res://Autoload/HintLabel/IMG_3572.PNG" type="Texture" id=2]
+[ext_resource path="res://Fonts/FFFFORWA.TTF" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "In"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.101532, 0.101532 ),
+"update": 0,
+"values": [ Vector2( -1050, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.101532, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -1050, 0 ) ]
+}
+
+[node name="BackSpriteHint" type="Sprite"]
+position = Vector2( -1050, 0 )
+scale = Vector2( 1.26146, 1.29793 )
+z_index = 3
+texture = ExtResource( 2 )
+offset = Vector2( 416.116, 131.052 )
+region_enabled = true
+region_rect = Rect2( 181, 443, 826, 255 )
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 38.8848
+margin_top = 23.6549
+margin_right = 561.885
+margin_bottom = 206.655
+rect_scale = Vector2( 1.036, 1.26367 )
+custom_fonts/font = SubResource( 1 )
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/In = SubResource( 2 )
+anims/Out = SubResource( 3 )

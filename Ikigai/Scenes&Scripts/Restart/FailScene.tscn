@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes&Scripts/Restart/ScreenAfter.gd" type="Script" id=1]
+[ext_resource path="res://Scenes&Scripts/Restart/FFFFORWA.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes&Scripts/Restart/restartOpaced.png" type="Texture" id=3]
+[ext_resource path="res://Scenes&Scripts/Restart/restartChipped.png" type="Texture" id=4]
+[ext_resource path="res://Scenes&Scripts/Restart/loadingBack.png" type="Texture" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0.780392 )
+border_color = Color( 0.8, 0.8, 0.8, 0.388235 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 2 )
+
+[node name="Lose" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.11896
+margin_right = 1920.0
+margin_bottom = 1077.88
+texture = ExtResource( 5 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 591.041
+margin_top = 551.665
+margin_right = 1841.04
+margin_bottom = 904.665
+rect_scale = Vector2( 0.6, 0.6 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 484.951
+margin_top = 311.551
+margin_right = 1444.95
+margin_bottom = 496.551
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
