@@ -5,5 +5,5 @@ Alibi Amanzholov - Lead Programmer;
 Abdrakhim Sanzhar - Developer;
 Alikhan Madibekov - Date Analyst, Scenarist;
 Lina Yeleuova - Game Designer;
-Tulebaeva Aiganym -  Data analyst, Designer
+Tulebaeva Aiganym -  Data analyst, Designer.
 
